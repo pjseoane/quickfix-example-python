@@ -2,7 +2,7 @@
 import sys
 import argparse
 import quickfix
-from application import Application
+from initiator.application import Application
 
 def main(config_file):
     """Main"""
@@ -21,6 +21,7 @@ def main(config_file):
         print(e)
         initiator.stop()
         sys.exit()
+
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description='FIX Client')
