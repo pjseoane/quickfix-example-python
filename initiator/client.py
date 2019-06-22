@@ -2,7 +2,7 @@
 import sys
 import argparse
 import quickfix
-from initiator.application import Application
+from initiator.Main.application import Application
 
 def main(config_file):
     """Main"""

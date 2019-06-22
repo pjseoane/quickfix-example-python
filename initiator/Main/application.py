@@ -2,13 +2,13 @@
 # -*- coding: utf8 -*-
 """FIX Application"""
 import sys
-# from datetime import datetime
+from datetime import datetime
 import quickfix as fix
 import time
 import logging
 #from model.logger import setup_logger
 from initiator.model.logger import setup_logger
-from initiator.model import Field
+#rom initiator.model import Field
 
 # configured
 __SOH__ = chr(1)
@@ -24,6 +24,7 @@ class Application(fix.Application):
 
     def onCreate(self, sessionID):
         self.sessionID = sessionID
+        print("On Create")
         return
     def onLogon(self, sessionID):
         self.sessionID = sessionID
@@ -33,12 +34,13 @@ class Application(fix.Application):
         return
 
     def toAdmin(self, message, sessionID):
-        # msg = message.toString().replace(__SOH__, "|")
-        # logfix.info("S >> (%s)" % msg)
+        msg = message.toString().replace(__SOH__, "|")
+        logfix.info("S >> (%s)" % msg)
         if message.getHeader().getField(35) is "A":
             message.setField(self.username)
             message.setField(self.mypass)
 
+            print("Mensaje toAdmin")
 
 
         return
