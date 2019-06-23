@@ -1,5 +1,5 @@
-from model import Field
-# import FIX42
+from initiator.model import Field
+
 
 class Types(object):
     Logon = 'A'
@@ -24,7 +24,9 @@ class Types(object):
     PositionRequest = 'AN'
     PositionReport = 'AP'
 
+
 __SOH__ = chr(1)
+
 
 def build_checksum(message):
     checksum = sum([ord(i) for i in list(message)]) % 256
