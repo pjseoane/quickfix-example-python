@@ -54,12 +54,11 @@ class Application(fix.Application):
         msg = message.toString().replace(__SOH__, "|")
         logfix.info("S >> (%s)" % msg)
 
-        #
-        # if message.getHeader().getField(35) is "A":
-        #    # message.setField(self.username)
-        # #      message.setField(self.mypass)
-        #
-        #     print("Message 35")
+        if message.getHeader().getField(35) == "A":
+            message.getHeader().setField(553, "pjseoane232")
+            message.getHeader().setField(554, "AiZkiC5#")
+
+            print("Message 35")
 
         print("Mensaje toAdmin")
         return
