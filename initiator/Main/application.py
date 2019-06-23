@@ -53,9 +53,13 @@ class Application(fix.Application):
 
         msg = message.toString().replace(__SOH__, "|")
         logfix.info("S >> (%s)" % msg)
+
+        #
         # if message.getHeader().getField(35) is "A":
-        #     message.setField(self.username)
-        #     message.setField(self.mypass)
+        #    # message.setField(self.username)
+        # #      message.setField(self.mypass)
+        #
+        #     print("Message 35")
 
         print("Mensaje toAdmin")
         return
@@ -97,6 +101,7 @@ class Application(fix.Application):
    
     def onMessage(self, message, sessionID):
         """on Message"""
+        print("On Message")
         pass
 
     def run(self):
